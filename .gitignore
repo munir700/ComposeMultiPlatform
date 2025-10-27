@@ -19,3 +19,7 @@ captures
 /iosApp/spmPackage/sources/ios-arm64/shared.framework/composeResources/cmpmobile.shared.generated.resources/drawable/compose-multiplatform.xml
 /iosApp/spmPackage/sources/ios-arm64_x86_64-simulator/shared.framework/composeResources/cmpmobile.shared.generated.resources/drawable/compose-multiplatform.xml
 /iosApp/iosApp.xcodeproj/project.xcworkspace/xcshareddata/swiftpm/Package.resolved
+
+# Exclude markdown documentation files
+*.md
+
