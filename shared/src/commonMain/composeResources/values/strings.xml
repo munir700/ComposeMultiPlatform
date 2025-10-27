@@ -1,0 +1,46 @@
+<resources>
+    <string name="login">Login</string>
+    <string name="user_name">User name</string>
+    <string name="password">Password</string>
+    <string name="please_enter_the_user_name">Please enter the User Name.</string>
+    <string name="please_enter_the_password">Please enter the Password</string>
+
+    <string name="no_more_items_to_load">No more items to load</string>
+    <string name="loading_items">Loading items...</string>
+    <string name="retry">Retry</string>
+    <string name="failed_to_load_more_items">Failed to load more items</string>
+    <string name="error">Error</string>
+    <string name="date_picker">DatePicker</string>
+    <string name="date_range_picker">Date Range Picker</string>
+    <string name="normal_popup">Normal Popup</string>
+    <string name="confirm_popup">Confirm Popup</string>
+    <string name="success_popup">Success Popup</string>
+    <string name="time_popup">Time Popup</string>
+    <string name="message_popup">Message Popup</string>
+    <string name="select_date_range">Select Date Range</string>
+    <string name="select_date">Select Date</string>
+    <string name="select_time">Select Time</string>
+    <string name="from_date">From date</string>
+    <string name="message">Message</string>
+    <string name="message_detail">Message detail</string>
+    <string name="success">Success</string>
+    <string name="success_details">Success details</string>
+    <string name="app_is_outdated">App Is Outdated</string>
+    <string name="please_update_app_to_continue">Please update the app to continue</string>
+    <string name="update">Update</string>
+    <string name="choose_image">Choose Image</string>
+    <string name="pick_from_gallery">Pick from Gallery</string>
+    <string name="capture_from_camera">Capture using Camera</string>
+    <string name="open_location">Open Location</string>
+    <string name="remove">Remove</string>
+    <string name="max_pages">Max Pages</string>
+    <string name="min_pages">Min Pages</string>
+    <string name="attachments_pictures">Attachments Pictures</string>
+    <string name="submit">Submit</string>
+    <string name="something_went_wrong_during_login">Something went wrong during the login, please try again later!</string>
+    <string name="user_not_logged_in">User is not logged-in</string>
+    <string name="pick_location_from_map">Select the geographic location from the map</string>
+    <string name="error_uploading_the_photo">Error uploading the photo</string>
+    <string name="min_max_satisfied">Minimum maximum restrictions do not satisfy</string>
+    <string name="max_images_reached">Maximum images have been reached</string>
+</resources>

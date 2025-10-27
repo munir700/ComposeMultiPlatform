@@ -1,0 +1,24 @@
+<resources>
+    <string name="ok">Ok</string>
+    <string name="close">Close</string>
+    <string name="cancel">Cancel</string>
+    <string name="confirm">Confirm</string>
+    <string name="error">Error</string>
+    <string name="no_internet_connection">No internet connection, please check your connection and try again.</string>
+    <string name="timeout_error">Looks like the server is taking too long to respond, please try again.</string>
+    <string name="something_went_wrong">Something went wrong, please try again.</string>
+    <string name="unauthorized_error">Unauthorized, Please logout and login again</string>
+    <string name="bad_request_error">Bad Request, Kindly provide correct request body</string>
+    <string name="no_email_apps_found_on_your_device">No email apps found on your device</string>
+    <string name="no_phone_apps_found_on_your_device">No phone apps found on your device</string>
+    <string name="no_browser_installed">No browser installed</string>
+    <string name="login_with">Login with</string>
+    <string name="select_date_range">Select Date Range</string>
+    <string name="select_date">Select Date</string>
+    <string name="select_time">Select Time</string>
+    <string name="am">am</string>
+    <string name="pm">pm</string>
+    <string name="na">NA</string>
+    <string name="done">Done</string>
+    <string name="search_here">Search here...</string>
+</resources>

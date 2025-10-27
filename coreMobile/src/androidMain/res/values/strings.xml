@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="no_email_apps_found_on_your_device">No email apps found on your device</string>
+    <string name="no_phone_apps_found_on_your_device">No phone apps found on your device</string>
+    <string name="no_browser_installed">No browser installed</string>
+    <string name="no_maps_application_installed">No maps application installed</string>
+</resources>

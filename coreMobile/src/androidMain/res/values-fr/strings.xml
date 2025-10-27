@@ -1,0 +1,6 @@
+<resources>
+    <string name="no_email_apps_found_on_your_device">Aucune application de messagerie trouvée sur votre appareil</string>
+    <string name="no_phone_apps_found_on_your_device">Aucune application téléphonique trouvée sur votre appareil</string>
+    <string name="no_browser_installed">Aucun navigateur installé</string>
+    <string name="no_maps_application_installed">Aucune application de cartes installée</string>
+</resources>

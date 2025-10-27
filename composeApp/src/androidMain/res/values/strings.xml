@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name" translatable="false">CMPMobile</string>
+    <string name="map_key" translatable="false">"TODO add google map key"</string>
+</resources>

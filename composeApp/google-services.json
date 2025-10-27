@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "562857502045",
+    "project_id": "cmpapp-130fb",
+    "storage_bucket": "cmpapp-130fb.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:562857502045:android:5f8ff6b5a5c00c101034b4",
+        "android_client_info": {
+          "package_name": "app.cmp.mobile"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD8kLekBuGXjCx6vqrhmpTy4P4R3iH-fHk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

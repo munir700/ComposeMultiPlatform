@@ -1,0 +1,81 @@
+package app.shared.mobile.presentation.theme
+
+import androidx.compose.runtime.Immutable
+import androidx.compose.runtime.staticCompositionLocalOf
+import androidx.compose.ui.graphics.Color
+import kmp.core.mobile.presentation.theme.CoreColors
+
+@Immutable
+data class AppColors(
+    val transparent: Color = Color.Transparent,
+    val white: Color = Color(0xFFFFFFFF),
+    val black: Color = Color(0xFF000000),
+    val gray: Color = Color(0xFF909090),
+    val darkGray: Color = Color(0xFF494A4D),
+    val medGray: Color = Color(0xFF7D848D),
+    val lightGray: Color = Color(0xFFB7B7B7),
+    val background: Color = white,
+    val tiffanyBlue: Color = Color(0xFF00ACAC),
+    val freshAir: Color = Color(0xFFB0DBFF),
+    val davyGrey: Color = Color(0xFF4B4F58),
+    val jetGray: Color = Color(0xFF323438),
+    val cadetGrey: Color = Color(0xFF94A3B8),
+    val slateGray: Color = Color(0xFF64748B),
+    val carminePink: Color = Color(0xFFEA4F49),
+    val pastelRed: Color = Color(0xFFFF6B65),
+    val lightSalmonPink: Color = Color(0xFFF49F9C),
+    val lightPeriwinkle: Color = Color(0xFFC9D1DB),
+    val policeBlue: Color = Color(0xFF1F5869),
+    val arsenic: Color = Color(0xFF3E4046),
+    val tealBlue: Color = Color(0xFF2E7084),
+    val gold: Color = Color(0xFFBB8E25),
+    val lightGold: Color = Color(0xFFF2ECCF),
+    val eastBay: Color = Color(0xFF475569),
+    val gainsBoro: Color = Color(0xFFE3E3E3),
+    val darkElectricBlue: Color = Color(0xFF58697D),
+    val ghostWhite: Color = Color(0xFFF7F9FC),
+    val teaBlue: Color = Color(0xFF284F5A),
+    val linkWater: Color = Color(0xFFCBD5E1),
+    val lightSteelBlue: Color = Color(0xFFB3C7DF),
+    val antiFlashWhite: Color = Color(0xFFF1F1F1),
+    val independence: Color = Color(0xFF475569),
+    val paleRobinEggBlue: Color = Color(0xFF91DADA),
+    val morningGlory: Color = Color(0xFF93D1D1),
+    val aliceBlue: Color = Color(0xFFF1F5F9),
+    val swamp: Color = Color(0xFF062727),
+    val quickSilver: Color = Color(0xFFA4A5A6),
+    val alabaster: Color = Color(0xFFEFE7E7),
+    val jet: Color = Color(0xFF363636),
+    val mabel: Color = Color(0xFFC2EBEB),
+    val darkCyan: Color = Color(0xFF0C8B92),
+    val darkJungleGreen: Color = Color(0xFF0F172A),
+    val sundance: Color = Color(0xFFCBA344),
+    val cosmos: Color = Color(0xFFFDCDCB),
+    val ruddyBrown: Color = Color(0xFFBC6B2B),
+    val chineseBrown: Color = Color(0xFFB73417),
+    val solitude: Color = Color(0xFFDDE2E8),
+    val dew: Color = Color(0xFFE9F5EB),
+    val chateauGreen: Color = Color(0xFF3F8E50),
+    val cinnabar: Color = Color(0xFFE54B1D),
+    val apricot: Color = Color(0xFFF9CFAF),
+    val biscay: Color = Color(0xFF334155),
+    val cyan: Color = Color(0xFF00D4D4),
+    val lightCyan: Color = Color(0xFFE0FDFD),
+    val lightGreen: Color = Color(0xFF15D69F),
+    val lightRed: Color = Color(0xFFFF6B65),
+    val brightGray: Color = Color(0xFFEFEFEF),
+    val floralWhite: Color = Color(0xFFF9F6ED),
+    val graniteGray: Color = Color(0xFF606164),
+    val hokeyPokey: Color = Color(0xFFB68A35),
+    val stormGrey: Color = Color(0xFF797E86),
+    val shuttleGrey: Color = Color(0xFF5F646D),
+    val elPaso: Color = Color(0xFF3E4028),
+    )
+
+val LocalAppColors = staticCompositionLocalOf { AppColors() }
+
+fun AppColors.getCoreColors() = CoreColors(
+    primary = tiffanyBlue,
+    background = white,
+    error = pastelRed,
+)
