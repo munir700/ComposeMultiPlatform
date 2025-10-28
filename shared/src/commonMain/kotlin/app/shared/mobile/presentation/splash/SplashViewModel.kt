@@ -4,7 +4,6 @@ package app.shared.mobile.presentation.splash
 import app.shared.mobile.domain.repositories.AuthRepository
 import app.shared.mobile.initializer.IAppInitializer
 import app.shared.mobile.presentation.base.AppBaseViewModel
-import app.shared.mobile.presentation.infiniteScrolling.InfiniteScrollScreen
 import app.shared.mobile.presentation.login.LoginScreen
 import app.shared.mobile.presentation.main.MainScreen
 import app.shared.mobile.presentation.splash.SplashContract.Effect

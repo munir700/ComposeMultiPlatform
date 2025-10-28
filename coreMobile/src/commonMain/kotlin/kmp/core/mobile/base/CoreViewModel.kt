@@ -150,5 +150,13 @@ abstract class CoreViewModel<S : ViewState, E : ViewEvent, SF : ViewSideEffect>(
             navManager.onNavResult<D, R>(callback = onResult)
         })
     }
+
+    /**
+     * Called when the screen is being destroyed through navigation (pop).
+     * Override this method to clean up resources like cancelling jobs, stopping timers, etc.
+     */
+    open fun onScreenDestroyed() {
+        // Override in subclasses for cleanup
+    }
 }
 

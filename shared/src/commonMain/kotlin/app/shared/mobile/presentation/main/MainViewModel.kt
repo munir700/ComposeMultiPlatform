@@ -12,6 +12,7 @@ import app.shared.mobile.presentation.main.MainContract.Effect
 import app.shared.mobile.presentation.main.MainContract.Event
 import app.shared.mobile.presentation.main.MainContract.State
 import app.shared.mobile.presentation.main.models.ChooseImage
+import app.shared.mobile.presentation.polling.PollingScreen
 import app.shared.mobile.resources.Res
 import app.shared.mobile.resources.app_is_outdated
 import app.shared.mobile.resources.capture_from_camera
@@ -230,7 +231,7 @@ class MainViewModel() : AppBaseViewModel<State, Event, Effect>() {
         val locationScreen: LocationScreen = get<LocationScreen> {
             parametersOf(LocationParams("My Title", true, Location()))
         }
-        navManager.navigate(locationScreen)
+        navManager.navigate(PollingScreen())
     }
 
 }

@@ -12,6 +12,7 @@ abstract class BaseScreen<T : CoreViewModel<*, *, *>>() : KoinComponent {
 
     open val key: String = randomUUID()
     open val screenTag: String = randomUUID()
+    protected var vm: T? = null
 
     protected fun getNavManager(): NavManager {
         return inject<NavManager>().value
@@ -19,6 +20,21 @@ abstract class BaseScreen<T : CoreViewModel<*, *, *>>() : KoinComponent {
 
     open fun onBackPressed() {
         getNavManager().goBack()
+    }
+
+    /**
+     * Called when the screen is being destroyed through navigation.
+     * Automatically notifies the ViewModel to clean up resources.
+     */
+    open fun onDestroyed() {
+        try {
+            vm?.let {
+                it.onScreenDestroyed()
+                vm = null
+            }
+        } catch (e: Exception) {
+            println("Error in ${this::class.simpleName} onDestroyed: ${e.message}")
+        }
     }
 
     @Composable

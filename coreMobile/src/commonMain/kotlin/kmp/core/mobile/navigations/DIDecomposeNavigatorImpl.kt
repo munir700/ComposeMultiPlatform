@@ -78,10 +78,22 @@ class DIDecomposeNavigatorImpl(
 
     fun pop(): Boolean {
         if (childStack.value.backStack.isNotEmpty()) {
+            // Notify current screen that it's being destroyed
+            notifyScreenDestroyed(lastItemOrNull)
             stackNavigation.pop()
             return true
         }
         return false
+    }
+
+    private fun notifyScreenDestroyed(screen: BaseScreen<*>?) {
+        if (screen != null) {
+            try {
+                screen.onDestroyed()  // ← Trigger cleanup hook
+            } catch (e: Exception) {
+                println("Error notifying screen destruction: ${e.message}")
+            }
+        }
     }
 
     fun popByCount(popCount: Int): Boolean {
