@@ -1,5 +1,6 @@
 package kmp.core.mobile.network.errors
 
+import kmp.core.mobile.base.ErrorType
 import kotlin.test.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertTrue
