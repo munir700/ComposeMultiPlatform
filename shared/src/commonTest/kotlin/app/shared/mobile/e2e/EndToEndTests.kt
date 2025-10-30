@@ -12,6 +12,9 @@ import kotlin.test.assertEquals
 import kotlin.test.assertFalse
 import kotlin.test.assertNotNull
 import kotlin.test.assertTrue
+import kotlin.time.Clock
+import kotlin.time.ExperimentalTime
+import kotlin.time.TimeSource
 
 /**
  * End-to-End Authentication Tests
@@ -34,7 +37,6 @@ class AuthenticationE2ETest {
             accessToken = "auth_token_123",
             refreshToken = "refresh_token_456",
             expiresIn = 3600,
-            user = mockUser
         )
 
         val result = simulateLoginProcess(loginRequest, expectedResponse)
@@ -52,6 +54,7 @@ class AuthenticationE2ETest {
         assertEquals(AuthError.INVALID_CREDENTIALS.message, result.exceptionOrNull()?.message)
     }
 
+    @OptIn(ExperimentalTime::class)
     @Test
     fun `test auth session persists after login`() {
         val mockUser = User(id = "user_123", username = "testuser", email = "testuser@example.com")
@@ -59,7 +62,7 @@ class AuthenticationE2ETest {
             user = mockUser,
             accessToken = "token_123",
             refreshToken = "refresh_123",
-            expiresIn = System.currentTimeMillis() + 3600000
+            expiresIn = Clock.System.now().toEpochMilliseconds() + 3600000
         )
 
         saveAuthSession(authSession)
@@ -70,6 +73,7 @@ class AuthenticationE2ETest {
         assertEquals(authSession.refreshToken, retrievedSession.refreshToken)
     }
 
+    @OptIn(ExperimentalTime::class)
     @Test
     fun `test logout clears auth session`() {
         val mockUser = User(id = "user_123", username = "testuser", email = "testuser@example.com")
@@ -77,7 +81,7 @@ class AuthenticationE2ETest {
             user = mockUser,
             accessToken = "token_123",
             refreshToken = "refresh_123",
-            expiresIn = System.currentTimeMillis() + 3600000
+            expiresIn = Clock.System.now().toEpochMilliseconds() + 3600000
         )
         saveAuthSession(authSession)
         assertTrue(isAuthenticated())
@@ -91,16 +95,21 @@ class AuthenticationE2ETest {
     // Helpers
     private var savedSession: AuthSession? = null
 
+    @OptIn(ExperimentalTime::class)
     private fun simulateLoginProcess(
         request: LoginRequest,
         response: LoginResponse
     ): Result<LoginResponse> {
         return try {
             val session = AuthSession(
-                user = response.user,
-                accessToken = response.accessToken,
-                refreshToken = response.refreshToken,
-                expiresIn = System.currentTimeMillis() + (response.expiresIn * 1000L)
+                user = User(
+                    id = "user_123",
+                    username = request.username.substringBefore("@"),
+                    email = request.username
+                ),
+                accessToken = response.accessToken.orEmpty(),
+                refreshToken = response.refreshToken.orEmpty(),
+                expiresIn = Clock.System.now().toEpochMilliseconds() + (response.expiresIn * 1000L)
             )
             saveAuthSession(session)
             Result.success(response)

@@ -49,7 +49,7 @@ class AttachmentChooserTest {
     fun `test attachment chooser initializes with data`() {
         // Arrange
         val mockAttachment = createMockAttachmentUIModel()
-        val mockCategory = CategoryPhoto(evaluationType = "profile", taskId = "task_1")
+        val mockCategory = CategoryPhoto(evaluationType = 1, taskId = 1)
 
         // Act
         val event = AttachmentChooserContract.Event.Init(
@@ -346,7 +346,7 @@ class AttachmentChooserTest {
     @Test
     fun `test category photo assignment`() {
         // Arrange
-        val category = CategoryPhoto(evaluationType = "profile", taskId = "task_1")
+        val category = CategoryPhoto(evaluationType = 1, taskId = 1)
         var state = AttachmentChooserContract.State()
 
         // Act
@@ -354,8 +354,8 @@ class AttachmentChooserTest {
 
         // Assert
         assertNotNull(state.categoryPhoto)
-        assertEquals("profile", state.categoryPhoto?.evaluationType)
-        assertEquals("task_1", state.categoryPhoto?.taskId)
+        assertEquals(1, state.categoryPhoto?.evaluationType)
+        assertEquals(1, state.categoryPhoto?.taskId)
     }
 }
 
@@ -393,6 +393,18 @@ class AttachmentChooserE2ETest {
         assertEquals(2, attachments.size)
         assertTrue(submitted)
         assertEquals(2, state.attachment?.attachedPics?.size)
+    }
+
+    private fun createMockAttachmentUIModel(attachments: List<AttachmentPicture>):AttachmentChooserUIModel {
+       return AttachmentChooserUIModel(
+            isMandatory = true,
+            title = "Upload Photos",
+            description = "Please upload your photos",
+            minPage = 1,
+            maxPage = 5,
+            docTypes = null,
+            attachedPics = attachments
+        )
     }
 
     /**
