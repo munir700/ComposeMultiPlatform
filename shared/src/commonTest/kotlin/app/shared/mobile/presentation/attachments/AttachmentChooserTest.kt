@@ -1,5 +1,6 @@
-package app.shared.mobile.presentation.attachments.chooser
+package app.shared.mobile.presentation.attachments
 
+import app.shared.mobile.presentation.attachments.chooser.AttachmentChooserContract
 import app.shared.mobile.presentation.attachments.chooser.models.AttachmentChooserUIModel
 import app.shared.mobile.presentation.attachments.models.AttachmentPicture
 import app.shared.mobile.presentation.attachments.models.CategoryPhoto
