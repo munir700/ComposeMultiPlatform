@@ -14,15 +14,19 @@ import com.arkivanov.decompose.router.stack.push
 import com.arkivanov.decompose.router.stack.replaceAll
 import com.arkivanov.decompose.router.stack.replaceCurrent
 import com.arkivanov.decompose.value.Value
+import kmp.core.mobile.AppLogger
 import kmp.core.mobile.base.BaseScreen
+import org.koin.core.component.KoinComponent
+import org.koin.core.component.inject
 import kotlin.reflect.KClass
 
 class DIDecomposeNavigatorImpl(
     componentContext: ComponentContext,
     initialScreen: BaseScreen<*>,
     private val screenFactory: DIScreenFactory
-) : DecomposeNavigator {
+) : DecomposeNavigator, KoinComponent {
 
+    private val logger by inject<AppLogger>()
     private val stackNavigation = StackNavigation<ScreenConfig>()
 
     init {
@@ -87,11 +91,12 @@ class DIDecomposeNavigatorImpl(
     }
 
     private fun notifyScreenDestroyed(screen: BaseScreen<*>?) {
-        if (screen != null) {
+        screen?.let {
             try {
                 screen.onDestroyed()  // ← Trigger cleanup hook
+                logger.log("screen destruction: ${screen::class.simpleName}")
             } catch (e: Exception) {
-                println("Error notifying screen destruction: ${e.message}")
+                logger.log("Error notifying screen destruction: ${e.message}")
             }
         }
     }
@@ -145,10 +150,11 @@ class DIDecomposeNavigatorImpl(
             is BaseScreen<*> -> {
                 val isSameCurrentScreen = lastItemOrNull?.screenTag == destination.screenTag
 
-                when(behaviour) {
+                when (behaviour) {
                     NavigateBehaviour.Normal -> {
                         push(destination)
                     }
+
                     NavigateBehaviour.ReplaceIfCurrent -> {
                         if (isSameCurrentScreen) {
                             screenFactory.registerScreen(destination)
@@ -159,6 +165,7 @@ class DIDecomposeNavigatorImpl(
                             push(destination)
                         }
                     }
+
                     NavigateBehaviour.KeepIfCurrent -> {
                         if (!isSameCurrentScreen) {
                             push(destination)
@@ -166,14 +173,16 @@ class DIDecomposeNavigatorImpl(
                     }
                 }
             }
+
             is NavDestination -> {
                 val screenConfig = createScreenConfig(destination)
                 val isSameCurrentScreen = lastItemOrNull?.screenTag == screenConfig.key
 
-                when(behaviour) {
+                when (behaviour) {
                     NavigateBehaviour.Normal -> {
                         stackNavigation.push(screenConfig)
                     }
+
                     NavigateBehaviour.ReplaceIfCurrent -> {
                         if (isSameCurrentScreen) {
                             stackNavigation.replaceCurrent(screenConfig)
@@ -181,6 +190,7 @@ class DIDecomposeNavigatorImpl(
                             stackNavigation.push(screenConfig)
                         }
                     }
+
                     NavigateBehaviour.KeepIfCurrent -> {
                         if (!isSameCurrentScreen) {
                             stackNavigation.push(screenConfig)
@@ -188,6 +198,7 @@ class DIDecomposeNavigatorImpl(
                     }
                 }
             }
+
             else -> throw IllegalArgumentException("Unsupported destination type: ${destination::class}")
         }
     }
