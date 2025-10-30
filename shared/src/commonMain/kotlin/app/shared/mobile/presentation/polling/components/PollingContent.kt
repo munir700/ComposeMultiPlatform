@@ -1,9 +1,11 @@
 package app.shared.mobile.presentation.polling.components
 
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.windowInsetsEndWidth
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -30,19 +32,14 @@ internal fun PollingContent(
     Box(
         modifier = Modifier
             .fillMaxSize()
-            .paint(
-                painter = painterResource(Res.drawable.bg_splash),
-                contentScale = ContentScale.FillBounds
-            )
+            .padding(horizontal = spacings.spacing40)
     ) {
 
         Text(
             text = "${state.items}",
-            style = typography.primaryRegular18,
-            color = colors.darkElectricBlue.copy(alpha = 0.5f),
-            modifier = Modifier
-                .align(Alignment.Center)
-                .padding(bottom = spacings.spacing100)
+            style = typography.primaryRegular20,
+            color = colors.darkElectricBlue,
+            modifier = Modifier.align(Alignment.Center)
         )
 
         // Positive button
@@ -55,8 +52,11 @@ internal fun PollingContent(
             },
             modifier = Modifier
                 .fillMaxWidth()
+                .padding(bottom = spacings.spacing50)
+
                 .align(Alignment.BottomCenter)
         )
     }
 }
+
 

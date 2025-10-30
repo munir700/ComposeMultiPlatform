@@ -216,7 +216,7 @@ class DIDecomposeNavigatorImpl(
         popByCount(count)
     }
 
-    override fun goBack() {
-        pop()
+    override fun goBack(): Boolean {
+        return pop()  // Return result from pop()
     }
 }

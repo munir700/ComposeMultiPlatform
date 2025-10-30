@@ -10,7 +10,7 @@ interface DecomposeNavigator {
     fun navigate(screen: BaseScreen<*>, behaviour: NavigateBehaviour)
     fun popTo(screenClass: KClass<*>)
     fun popCount(count: Int)
-    fun goBack()
+    fun goBack(): Boolean  // Return Boolean to indicate if back was successful
 
     val lastItemOrNull: BaseScreen<*>?
 }

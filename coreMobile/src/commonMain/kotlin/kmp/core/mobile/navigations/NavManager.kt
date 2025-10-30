@@ -3,7 +3,6 @@ package kmp.core.mobile.navigations
 import kmp.core.mobile.AppLogger
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.DelicateCoroutinesApi
-import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -19,6 +18,9 @@ class NavManager(private val appLogger: AppLogger) {
     private val _effects: Channel<NavEffect> = Channel(Channel.UNLIMITED)
     private val effects = _effects.receiveAsFlow()
     private val _results = MutableStateFlow<NavResult<*>?>(null)
+
+    // Hold reference to navigator for real-time results
+    var navigator: DecomposeNavigator? = null
 
     fun navigate(
         destination: NavDestination,
@@ -69,9 +71,16 @@ class NavManager(private val appLogger: AppLogger) {
         _effects.trySend(NavEffect.PopCount(count))
     }
 
-    fun goBack() {
+    /**
+     * Go back to previous screen.
+     * Returns real-time result: true if successfully went back, false if stack is empty.
+     */
+    fun goBack(): Boolean {
         log("goBack")
         _effects.trySend(NavEffect.GoBack)
+
+        // Return real-time result from navigator if available
+        return navigator?.goBack() ?: false
     }
 
     fun collectNavEffects(scope: CoroutineScope, callback: (NavEffect) -> Unit) {

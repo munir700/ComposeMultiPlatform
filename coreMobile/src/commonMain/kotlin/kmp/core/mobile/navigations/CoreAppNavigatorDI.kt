@@ -34,6 +34,11 @@ fun CoreAppNavigatorDI(
         )
     }
 
+    // Set navigator reference on NavManager for real-time goBack() results
+    LaunchedEffect(navigator) {
+        navManager.navigator = navigator
+    }
+
     val childStack by navigator.childStack.subscribeAsState()
 
     // Handle navigation effects
