@@ -3,6 +3,7 @@ package kmp.core.mobile.base
 
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
+import kmp.core.mobile.AppLogger
 import kmp.core.mobile.navigations.NavManager
 import kmp.core.mobile.utils.extensions.randomUUID
 import org.koin.core.component.KoinComponent
@@ -12,7 +13,10 @@ abstract class BaseScreen<T : CoreViewModel<*, *, *>>() : KoinComponent {
 
     open val key: String = randomUUID()
     open val screenTag: String = randomUUID()
-    protected var vm: T? = null
+
+    protected var viewModel: T? = null
+
+    private val logger by inject<AppLogger>()
 
     protected fun getNavManager(): NavManager {
         return inject<NavManager>().value
@@ -28,12 +32,12 @@ abstract class BaseScreen<T : CoreViewModel<*, *, *>>() : KoinComponent {
      */
     open fun onDestroyed() {
         try {
-            vm?.let {
+            viewModel?.let {
                 it.onScreenDestroyed()
-                vm = null
+                viewModel = null
             }
         } catch (e: Exception) {
-            println("Error in ${this::class.simpleName} onDestroyed: ${e.message}")
+            logger.log("Error in ${this::class.simpleName} onDestroyed: ${e.message}")
         }
     }
 

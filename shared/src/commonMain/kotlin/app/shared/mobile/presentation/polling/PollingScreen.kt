@@ -17,7 +17,7 @@ class PollingScreen() : BaseScreen<PollingViewModel>() {
     @Composable
     override fun Content() {
         val viewModel = rememberViewModel<PollingViewModel>()
-        this@PollingScreen.vm = viewModel
+        this@PollingScreen.viewModel = viewModel
 
         // Handle side effects
         viewModel.effect.consume {
