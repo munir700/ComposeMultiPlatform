@@ -9,10 +9,12 @@ import app.shared.mobile.presentation.locationScreen.LocationViewModel
 import app.shared.mobile.presentation.login.LoginViewModel
 import app.shared.mobile.presentation.main.MainViewModel
 import app.shared.mobile.presentation.splash.SplashViewModel
+import app.shared.mobile.presentation.polling.PollingViewModel
 import org.koin.dsl.module
 
 val viewModelsModule = module {
     // MARK: Add view model definitions
+    factory { PollingViewModel() }
     factory { AttachmentChooserViewModel(get(), get(), get(), get()) }
     factory { MainViewModel() }
     factory { LoginViewModel() }

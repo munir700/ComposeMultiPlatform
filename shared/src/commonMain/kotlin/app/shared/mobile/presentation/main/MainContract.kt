@@ -1,5 +1,6 @@
 package app.shared.mobile.presentation.main
 
+import app.shared.mobile.data.remote.models.ItemModel
 import kmp.core.mobile.base.ViewEvent
 import kmp.core.mobile.base.ViewSideEffect
 import kmp.core.mobile.base.ViewState
