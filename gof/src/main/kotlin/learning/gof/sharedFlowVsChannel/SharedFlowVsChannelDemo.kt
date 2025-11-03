@@ -6,6 +6,12 @@ fun main() = runBlocking {
     println("=== SharedFlow Example (Broadcast) ===")
     sharedFlowBroadcastExample(this)
 
-    println("\n=== Channel Example (One-to-One) ===")
+    /* println("\n=== Channel Example (One-to-One) ===")
     channelExample(this)
+
+
+    println("\n=== StateFlow Example  ===")
+    stateFlowExample(this)*/
+
+    sharedFlowReplayExample(this)
 }
