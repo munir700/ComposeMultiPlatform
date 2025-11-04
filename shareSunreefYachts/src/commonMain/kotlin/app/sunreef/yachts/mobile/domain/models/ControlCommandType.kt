@@ -1,0 +1,7 @@
+package app.sunreef.yachts.mobile.domain.models
+
+enum class ControlCommandType {
+    START_ENGINE, STOP_ENGINE, ANCHOR, SET_HEADING, ADJUST_SPEED,
+    UNLOCK_DOOR, LOCK_DOOR, ARM_ALARM, DISARM_ALARM,
+    SET_TEMPERATURE, ADJUST_LIGHTING, START_GENERATOR, STOP_GENERATOR
+}

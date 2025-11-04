@@ -36,5 +36,6 @@ dependencyResolutionManagement {
 include(":composeApp")
 include(":shared")
 include(":coreMobile")
+include(":shareSunreefYachts")
 include(":gof")
 include(":demoKt")

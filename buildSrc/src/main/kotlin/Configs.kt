@@ -14,6 +14,14 @@ object Configs {
         const val NAMESPACE = "app.shared.mobile"
     }
 
+    object SunreefYachts {
+        const val PROJECT_NAME = "Sunreef Yachts Mobile"
+        const val VERSION = "1.0.0"
+        const val PROJECT_HOME_PAGE = "https://github.com/munir700"
+        const val NAMESPACE = "app.sunreef.yachts.mobile"
+        const val FRAMEWORK_NAME = "SunreefYachts"
+    }
+
     object Android {
         const val COMPILE_SDK_VERSION = 36
         const val TARGET_SDK_VERSION = 36
