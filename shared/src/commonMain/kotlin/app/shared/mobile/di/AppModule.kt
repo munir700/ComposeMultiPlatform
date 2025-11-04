@@ -15,5 +15,5 @@ fun appModule(
     single { environment }
     single { appInfo }
     single<IAppGlobalState> { AppGlobalState() }
-    single<ICoreGlobalState> { get<IAppGlobalState>() }
+    single<ICoreGlobalState>(override = true) { get<IAppGlobalState>() }
 }
