@@ -8,7 +8,7 @@ import android.os.Build
  */
 
 actual class Platform {
-    actual val name: String = "Android"
+    val name: String = "Android"
     val osVersion: Int = Build.VERSION.SDK_INT
     val manufacturer: String = Build.MANUFACTURER
     val model: String = Build.MODEL
@@ -21,5 +21,5 @@ internal actual object PlatformContext {
         context = ctx
     }
 
-    actual fun getContext(): Any = context
+    fun getContext(): Any = context
 }

@@ -2,7 +2,6 @@ package app.sunreef.yachts.mobile.domain.repositories
 
 import app.sunreef.yachts.mobile.domain.models.MQTTMessage
 import app.sunreef.yachts.mobile.domain.models.ModbusRegisterValue
-import app.sunreef.yachts.mobile.domain.models.NMEA2000Frame
 import kotlinx.coroutines.flow.Flow
 
 interface IProtocolRepository {

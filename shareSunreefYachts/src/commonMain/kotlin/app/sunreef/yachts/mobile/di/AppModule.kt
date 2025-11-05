@@ -1,7 +1,10 @@
 package app.sunreef.yachts.mobile.di
 
+import app.sunreef.yachts.mobile.constants.AppEnvironment
+import app.sunreef.yachts.mobile.constants.AppInfo
 import app.sunreef.yachts.mobile.globalState.AppGlobalState
 import app.sunreef.yachts.mobile.globalState.IAppGlobalState
+import kmp.core.mobile.globalState.ICoreGlobalState
 import org.koin.dsl.module
 
 /**
@@ -10,8 +13,12 @@ import org.koin.dsl.module
  * Follows the same pattern as AppModule in shared module
  */
 
-fun sunreefYachtsAppModule() = module {
-    // Global State
+fun sunreefYachtsAppModule(
+    environment: AppEnvironment,
+    appInfo: AppInfo
+) = module {
+    single { environment }
+    single { appInfo }
     single<IAppGlobalState> { AppGlobalState() }
+    single<ICoreGlobalState> { get<IAppGlobalState>() }
 }
-

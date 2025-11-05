@@ -1,10 +1,10 @@
 package app.sunreef.yachts.mobile.presentation.dashboard
 
+import app.sunreef.yachts.mobile.domain.usecases.yacht.GetYachtSystemsUseCase
 import app.sunreef.yachts.mobile.presentation.base.AppBaseViewModel
 import app.sunreef.yachts.mobile.presentation.dashboard.DashboardContract.Effect
 import app.sunreef.yachts.mobile.presentation.dashboard.DashboardContract.Event
 import app.sunreef.yachts.mobile.presentation.dashboard.DashboardContract.State
-import app.sunreef.yachts.mobile.domain.usecases.GetYachtSystemsUseCase
 
 /**
  * Dashboard ViewModel

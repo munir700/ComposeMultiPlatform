@@ -3,11 +3,14 @@ import app.sunreef.yachts.mobile.domain.models.*
 import app.sunreef.yachts.mobile.domain.repositories.*
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
+import kotlin.time.ExperimentalTime
+
 /**
  * Yacht System Repository Implementation
  * Handles yacht system data access
  */
 class YachtSystemRepositoryImpl : IYachtSystemRepository {
+    @OptIn(ExperimentalTime::class)
     override suspend fun getYachtSystems(): Result<List<YachtSystem>> {
         return try {
             val currentTimeMillis = kotlin.time.Clock.System.now().toEpochMilliseconds()
@@ -34,6 +37,7 @@ class YachtSystemRepositoryImpl : IYachtSystemRepository {
             Result.failure(e)
         }
     }
+    @OptIn(ExperimentalTime::class)
     override suspend fun getYachtSystem(systemId: String): Result<YachtSystem> {
         return try {
             Result.success(
@@ -65,6 +69,7 @@ class YachtSystemRepositoryImpl : IYachtSystemRepository {
  * Handles engine data and control
  */
 class EngineRepositoryImpl : IEngineRepository {
+    @OptIn(ExperimentalTime::class)
     override suspend fun getEngineData(engineId: String): Result<EngineData> {
         return try {
             Result.success(
@@ -115,6 +120,7 @@ class EngineRepositoryImpl : IEngineRepository {
  * Handles navigation and routing data
  */
 class NavigationRepositoryImpl : INavigationRepository {
+    @OptIn(ExperimentalTime::class)
     override suspend fun getCurrentPosition(): Result<NavigationData> {
         return try {
             Result.success(
@@ -178,6 +184,7 @@ class NavigationRepositoryImpl : INavigationRepository {
  * Handles electrical system data and control
  */
 class ElectricalRepositoryImpl : IElectricalRepository {
+    @OptIn(ExperimentalTime::class)
     override suspend fun getElectricalData(): Result<ElectricalData> {
         return try {
             Result.success(
@@ -227,6 +234,8 @@ class ElectricalRepositoryImpl : IElectricalRepository {
  * Handles water system data and control
  */
 class WaterSystemRepositoryImpl : IWaterSystemRepository {
+
+    @OptIn(ExperimentalTime::class)
     override suspend fun getWaterSystemData(): Result<WaterSystemData> {
         return try {
             Result.success(
@@ -273,6 +282,7 @@ class WaterSystemRepositoryImpl : IWaterSystemRepository {
  * Handles climate control data and commands
  */
 class ClimateRepositoryImpl : IClimateRepository {
+    @OptIn(ExperimentalTime::class)
     override suspend fun getClimateData(): Result<ClimateData> {
         return try {
             Result.success(
@@ -320,6 +330,7 @@ class ClimateRepositoryImpl : IClimateRepository {
  * Handles security system data and control
  */
 class SecurityRepositoryImpl : ISecurityRepository {
+    @OptIn(ExperimentalTime::class)
     override suspend fun getSecurityData(): Result<SecurityData> {
         return try {
             Result.success(
@@ -439,6 +450,8 @@ class AlertRepositoryImpl : IAlertRepository {
  * Handles system telemetry and performance metrics
  */
 class TelemetryRepositoryImpl : ITelemetryRepository {
+
+    @OptIn(ExperimentalTime::class)
     override suspend fun getTelemetry(systemId: String): Result<SystemTelemetry> {
         return try {
             Result.success(
@@ -463,6 +476,7 @@ class TelemetryRepositoryImpl : ITelemetryRepository {
             }
         }
     }
+    @OptIn(ExperimentalTime::class)
     override suspend fun getPerformanceMetrics(): Result<PerformanceMetrics> {
         return try {
             Result.success(
@@ -504,6 +518,7 @@ class ProtocolRepositoryImpl : IProtocolRepository {
     override fun streamNMEA2000Data(): Flow<NMEA2000Frame> {
         return flow { }
     }
+    @OptIn(ExperimentalTime::class)
     override suspend fun readModbusRegister(address: Int): Result<ModbusRegisterValue> {
         return try {
             Result.success(

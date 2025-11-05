@@ -1,7 +1,6 @@
 package app.sunreef.yachts.mobile.di
 import app.sunreef.yachts.mobile.data.repositories.*
 import app.sunreef.yachts.mobile.domain.repositories.*
-import org.koin.core.module.dsl.singleOf
 import org.koin.dsl.module
 /**
  * Data Layer DI Module
@@ -10,27 +9,27 @@ import org.koin.dsl.module
  */
 val dataModule = module {
     // Yacht System Repository
-    singleOf<IYachtSystemRepository> { YachtSystemRepositoryImpl() }
+    single <IYachtSystemRepository> { YachtSystemRepositoryImpl() }
     // Engine Repository
-    singleOf<IEngineRepository> { EngineRepositoryImpl() }
+    single  <IEngineRepository> { EngineRepositoryImpl() }
     // Navigation Repository
-    singleOf<INavigationRepository> { NavigationRepositoryImpl() }
+    single  <INavigationRepository> { NavigationRepositoryImpl() }
     // Electrical Repository
-    singleOf<IElectricalRepository> { ElectricalRepositoryImpl() }
+    single  <IElectricalRepository> { ElectricalRepositoryImpl() }
     // Water System Repository
-    singleOf<IWaterSystemRepository> { WaterSystemRepositoryImpl() }
+    single  <IWaterSystemRepository> { WaterSystemRepositoryImpl() }
     // Climate Repository
-    singleOf<IClimateRepository> { ClimateRepositoryImpl() }
+    single  <IClimateRepository> { ClimateRepositoryImpl() }
     // Security Repository
-    singleOf<ISecurityRepository> { SecurityRepositoryImpl() }
+    single  <ISecurityRepository> { SecurityRepositoryImpl() }
     // Remote Control Repository
-    singleOf<IRemoteControlRepository> { RemoteControlRepositoryImpl() }
+    single  <IRemoteControlRepository> { RemoteControlRepositoryImpl() }
     // Alert Repository
-    singleOf<IAlertRepository> { AlertRepositoryImpl() }
+    single  <IAlertRepository> { AlertRepositoryImpl() }
     // Telemetry Repository
-    singleOf<ITelemetryRepository> { TelemetryRepositoryImpl() }
+    single  <ITelemetryRepository> { TelemetryRepositoryImpl() }
     // Protocol Repository
-    singleOf<IProtocolRepository> { ProtocolRepositoryImpl() }
+    single  <IProtocolRepository> { ProtocolRepositoryImpl() }
     // Connectivity Repository
-    singleOf<IConnectivityRepository> { ConnectivityRepositoryImpl() }
+    single  <IConnectivityRepository> { ConnectivityRepositoryImpl() }
 }

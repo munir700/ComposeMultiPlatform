@@ -3,8 +3,8 @@ package app.sunreef.yachts.mobile.data.repositories
 import app.sunreef.yachts.mobile.domain.models.MQTTMessage
 import app.sunreef.yachts.mobile.domain.models.ModbusDataType
 import app.sunreef.yachts.mobile.domain.models.ModbusRegisterValue
-import app.sunreef.yachts.mobile.domain.models.NMEA2000Frame
 import app.sunreef.yachts.mobile.domain.repositories.IProtocolRepository
+import app.sunreef.yachts.mobile.domain.repositories.NMEA2000Frame
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import kotlin.time.Clock
