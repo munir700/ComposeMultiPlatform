@@ -8,6 +8,18 @@ import kotlinx.coroutines.flow.Flow
  * Use cases for engine operations
  */
 
+class GetEngineDataUseCase(
+    private val engineRepository: IEngineRepository
+) {
+    suspend operator fun invoke(engineId: String): Result<EngineData> {
+        return try {
+            engineRepository.getEngineData(engineId)
+        } catch (e: Exception) {
+            Result.failure(e)
+        }
+    }
+}
+
 class StreamEngineDataUseCase(
     private val engineRepository: IEngineRepository
 ) {
@@ -39,4 +51,3 @@ class StopEngineUseCase(
         }
     }
 }
-

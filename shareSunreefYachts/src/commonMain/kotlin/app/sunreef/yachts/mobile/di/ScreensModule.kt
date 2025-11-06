@@ -1,7 +1,6 @@
 package app.sunreef.yachts.mobile.di
 
 import app.sunreef.yachts.mobile.presentation.dashboard.DashboardViewModel
-import org.koin.core.module.dsl.factory
 import org.koin.dsl.module
 
 /**

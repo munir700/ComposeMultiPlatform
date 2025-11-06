@@ -14,12 +14,12 @@ object Configs {
         const val NAMESPACE = "app.shared.mobile"
     }
 
-    object SunreefYachts {
+    object SharedSunreefYachts {
         const val PROJECT_NAME = "Sunreef Yachts Mobile"
         const val VERSION = "1.0.0"
         const val PROJECT_HOME_PAGE = "https://github.com/munir700"
         const val NAMESPACE = "app.sunreef.yachts.mobile"
-        const val FRAMEWORK_NAME = "SunreefYachts"
+        const val FRAMEWORK_NAME = "SharedSunreefYachts"
     }
 
     object Android {
@@ -47,5 +47,12 @@ object Configs {
         const val VERSION = "1.0.0"
         const val PROJECT_HOME_PAGE = "https://github.com/munir700/"
         const val NAMESPACE = "learning.gof"
+    }
+
+    object SunreefYachtsApp {
+        const val APP_ID = "learning.sunreef.yachts"
+        const val NAMESPACE = "app.sunreef.yachts"
+        const val VERSION_CODE = 1
+        const val VERSION_NAME = "1.0.0"
     }
 }

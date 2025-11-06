@@ -25,13 +25,13 @@ kotlin {
         iosSimulatorArm64()
     ).forEach { iosTarget ->
         iosTarget.binaries.framework {
-            baseName = Configs.SunreefYachts.FRAMEWORK_NAME
+            baseName = Configs.SharedSunreefYachts.FRAMEWORK_NAME
             isStatic = true
             xcf.add(this)
 
             // Add bundle ID to fix the warning
             freeCompilerArgs += listOf(
-                "-Xbinary=bundleId=${Configs.SunreefYachts.NAMESPACE}"
+                "-Xbinary=bundleId=${Configs.SharedSunreefYachts.NAMESPACE}"
             )
 
             export(project(Modules.CORE_MOBILE))
@@ -73,7 +73,7 @@ kotlin {
 }
 
 android {
-    namespace = Configs.SunreefYachts.NAMESPACE
+    namespace = Configs.SharedSunreefYachts.NAMESPACE
     compileSdk = Configs.Android.COMPILE_SDK_VERSION
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_17
@@ -86,7 +86,7 @@ android {
 
 compose.resources {
     publicResClass = true
-    packageOfResClass = "${Configs.SunreefYachts.NAMESPACE}.resources"
+    packageOfResClass = "${Configs.SharedSunreefYachts.NAMESPACE}.resources"
     generateResClass = always
 }
 
